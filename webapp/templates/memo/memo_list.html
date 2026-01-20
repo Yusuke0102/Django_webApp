@@ -1,0 +1,21 @@
+<h2>メモ一覧</h2>
+
+<a href="{% url 'hoge_main' %}">＋ Test HOGE!</a>
+
+<p><a href="{% url 'memo_create' %}">＋ 新規作成</a></p>
+
+<ul>
+  {% for memo in memos %}
+    <li>
+      <strong>{{ memo.title }}</strong>
+      <a href="{% url 'memo_update' memo.pk %}">編集</a>
+      <a href="{% url 'memo_delete' memo.pk %}">削除</a>
+      <br>
+      <small>更新: {{ memo.updated_at }}</small>
+    </li>
+  {% empty %}
+    <li>まだメモがありません🙂</li>
+  {% endfor %}
+</ul>
+
+<p><a href="{% url 'home' %}">← Homeへ戻る</a></p>

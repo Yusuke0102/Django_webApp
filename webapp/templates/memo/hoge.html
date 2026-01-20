@@ -1,0 +1,28 @@
+<h2>HOGE Page</h2>
+{% if Res == 0 %}
+  <p>This is even.</p>
+{% elif Res == 1 %}
+  <p>This is odd.</p>
+{% elif Res == "I_Limit" %}
+  <p>Reset to 0 because limit reached!</p>
+{% elif Res == "I_Init" %}
+  <p>Reset to 0 because Push Init button!</p>
+{% endif %}
+
+<p method="GET"><a href="{% url 'hoge_main' %}">＋ Test GET!</a></p>
+
+<form method="POST" action="{% url 'hoge_main' %}">
+{% csrf_token %}
+<button type="submit">＋ Test POST!</button>
+</form>
+
+
+<p>count = {{ count }}</p>
+
+<form method="get" action="{% url 'hoge_main'  %}">
+  <input type="hidden" name="hoge" value="Init">
+  <button type="submit">Test Init!</button>
+</form>
+
+<br>
+<a href="{% url 'memo_home' %}">＋ ホームに戻る</a>

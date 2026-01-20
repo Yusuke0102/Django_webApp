@@ -1,0 +1,9 @@
+<h2>削除確認</h2>
+<p>「{{ memo.title }}」を削除します。よろしいですか？😢</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">削除する</button>
+</form>
+
+<p><a href="{% url 'memo_home' %}">← やめる</a></p>

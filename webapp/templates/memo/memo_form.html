@@ -1,0 +1,19 @@
+{% if mode2 == "hogehoge" %}
+  <h2>{{ hoge }}</h2>
+{% else %}
+  <h2>Nothing🙂</h2>
+{% endif %}
+
+{% if mode == "create" %}
+  <h2>メモ作成</h2>
+{% else %}
+  <h2>メモ編集：{{ memo.title }}</h2>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">保存</button>
+</form>
+
+<p><a href="{% url 'memo_home' %}">← 一覧へ戻る</a></p>

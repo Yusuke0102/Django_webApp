@@ -24,5 +24,6 @@ urlpatterns = [
     path('', lambda request: redirect('home/')),  # ← ここがポイント
     path('home/', views.home_template, name='home'),
     path('home/memo/', include('memo.urls')),
+    path('home/login/', include('login.urls')),
 ]
 
